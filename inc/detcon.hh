@@ -33,4 +33,36 @@ class detcon : public G4VUserDetectorConstruction {
     virtual ~detcon();
 
     virtual G4VPhysicalVolume* Construct();
+    virtual G4VPhysicalVolume* BuildRossFilter();
+private:
+
+    G4LogicalVolume *logicWorld;
+
+    G4Material* worldMat;
+    G4Material* ross_Ti;
+    G4Material* ross_Pd;
+    G4Material* ross_Mylar;
+    G4Material* ross_Al;
+    G4Material* ross_Ni;
+    G4Material* ross_Fe;
+
+    G4double rossThickness_Ti;
+    G4double rossThickness_Pd;
+    G4double rossThickness_Ni;
+    G4double rossThickness_Fe;
+    G4double rossThickness_Al;
+    G4double rossThickness_Mylar;
+
+    G4Tubs* solidRoss;
+
+    G4LogicalVolume* logicRoss_Ti;
+    G4LogicalVolume* logicRoss_Pd;
+    G4LogicalVolume* logicRoss_Ni;
+    G4LogicalVolume* logicRoss_Fe;
+    G4LogicalVolume* logicRoss_Al;
+    G4LogicalVolume* logicRoss_Mylar;
+
+    G4Tubs* solidRossFilter;
+    G4LogicalVolume* logicRossFilter;
+    G4VPhysicalVolume* physRossFilter;
 };
