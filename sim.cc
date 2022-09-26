@@ -7,7 +7,7 @@
 #include "G4RunManager.hh"
 #endif
 
-#include "Shielding.hh"
+#include "FTFP_BERT_HP.hh"
 #include "G4SteppingVerbose.hh"
 #include "G4UImanager.hh"
 #include "G4VisExecutive.hh"
@@ -30,7 +30,7 @@ int main(int argc, char** argv) {
 #endif
 
   runManager->SetUserInitialization(new detcon());
-  runManager->SetUserInitialization(new Shielding());
+  runManager->SetUserInitialization(new FTFP_BERT_HP());
   runManager->SetUserInitialization(new actioninit());
 
   G4VisManager* visManager = new G4VisExecutive;
