@@ -24,6 +24,8 @@
 
 #include "TMath.h"
 
+#include "gammasd.hh"
+
 class G4VPhysicalVolume;
 class G4LogicalVolume;
 
@@ -34,35 +36,47 @@ class detcon : public G4VUserDetectorConstruction {
 
     virtual G4VPhysicalVolume* Construct();
     virtual G4VPhysicalVolume* BuildRossFilter();
+
+    virtual void ConstructSDandField();
 private:
 
     G4LogicalVolume *logicWorld;
 
     G4Material* worldMat;
-    G4Material* ross_Ti;
-    G4Material* ross_Pd;
-    G4Material* ross_Mylar;
-    G4Material* ross_Al;
-    G4Material* ross_Ni;
-    G4Material* ross_Fe;
+    G4Material* ross_Pair0_0;
+    G4Material* ross_Pair0_1;
+    G4Material* ross_Pair2_1;
+    G4Material* ross_Pair2_0;
+    G4Material* ross_Pair1_0;
+    G4Material* ross_Pair1_1;
 
-    G4double rossThickness_Ti;
-    G4double rossThickness_Pd;
-    G4double rossThickness_Ni;
-    G4double rossThickness_Fe;
-    G4double rossThickness_Al;
-    G4double rossThickness_Mylar;
+    G4double rossThickness_Pair0_0;
+    G4double rossThickness_Pair0_1;
+    G4double rossThickness_Pair1_0;
+    G4double rossThickness_Pair1_1;
+    G4double rossThickness_Pair2_0;
+    G4double rossThickness_Pair2_1;
 
-    G4Tubs* solidRoss;
+    G4Tubs* solidRoss_Pair0_0;
+    G4Tubs* solidRoss_Pair0_1;
+    G4Tubs* solidRoss_Pair1_0;
+    G4Tubs* solidRoss_Pair1_1;
+    G4Tubs* solidRoss_Pair2_0;
+    G4Tubs* solidRoss_Pair2_1;
 
-    G4LogicalVolume* logicRoss_Ti;
-    G4LogicalVolume* logicRoss_Pd;
-    G4LogicalVolume* logicRoss_Ni;
-    G4LogicalVolume* logicRoss_Fe;
-    G4LogicalVolume* logicRoss_Al;
-    G4LogicalVolume* logicRoss_Mylar;
+    G4LogicalVolume* logicRoss_Pair0_0;
+    G4LogicalVolume* logicRoss_Pair0_1;
+    G4LogicalVolume* logicRoss_Pair1_0;
+    G4LogicalVolume* logicRoss_Pair1_1;
+    G4LogicalVolume* logicRoss_Pair2_0;
+    G4LogicalVolume* logicRoss_Pair2_1;
 
     G4Tubs* solidRossFilter;
     G4LogicalVolume* logicRossFilter;
     G4VPhysicalVolume* physRossFilter;
+
+    G4Tubs* solidDet;
+    G4Tubs* solidDetTotal;
+    G4LogicalVolume* logicDet;
+    G4LogicalVolume* logicDetTotal;
 };

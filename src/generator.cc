@@ -18,9 +18,9 @@ generator::generator() {
     sps->GetAngDist()->SetAngDistType("planar"); // Isotropic, Cosine-law, Beam, User-defined
 
     sps->GetEneDist()->SetEnergyDisType("Bbody"); // Mono, Lin, Pow, Exp, Gaus, Brem, BBody, Cdg (cosmic diffuse gamma), User, Arb, Epn (energy per nucleon)
-    sps->GetEneDist()->SetEmin(1*keV);
-    sps->GetEneDist()->SetEmax(20*keV);
-    sps->GetEneDist()->SetTemp(6E7);
+    sps->GetEneDist()->SetEmin(0.1*keV);
+    sps->GetEneDist()->SetEmax(200*keV);
+    sps->GetEneDist()->SetTemp(2E7);
 }
 
 generator::~generator() {

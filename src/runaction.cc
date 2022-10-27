@@ -4,8 +4,7 @@ runAction::runAction() : G4UserRunAction() {
   man = G4AnalysisManager::Instance();
   man->CreateNtuple("Gamma", "Gamma");
   man->CreateNtupleDColumn("E");
-  man->CreateNtupleDColumn("X");
-  man->CreateNtupleDColumn("Y");
+  man->CreateNtupleDColumn("CopyNo");
   man->FinishNtuple(0);
 }
 
