@@ -8,7 +8,7 @@ generator::generator() {
     G4ParticleDefinition *particle = G4ParticleTable::GetParticleTable()->FindParticle("gamma");
 
     sps->SetParticleDefinition(particle);
-    sps->SetNumberOfParticles(100000);
+    sps->SetNumberOfParticles(1);
 
     sps->GetPosDist()->SetPosDisType("Plane"); // Point, Beam, Plane, Surface, Volume
     sps->GetPosDist()->SetPosDisShape("Circle");
@@ -36,7 +36,7 @@ generator::generator() {
     double epsilon0 = 8.854E-12; // permitivity of free space (F/m)
     double c0 = 2.998E8; // m/s
     double constant = 3 * Nbet * TMath::Power(qe, 2) / (2*TMath::Power(TMath::Pi(), 3) * hbarJ * c0 * epsilon0);
-    for (unsigned int i = 1; i < 1001; i++) {
+    for (unsigned int i = 1; i < 1024; i++) {
         double ehi = 20. * i; // in eV
         double CSI = (ehi - 10.) / Ecrit;
         double val = constant * TMath::Power(gammaFactor * CSI * ROOT::Math::cyl_bessel_k(2./3., CSI), 2);

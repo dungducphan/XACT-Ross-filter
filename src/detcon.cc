@@ -58,6 +58,8 @@ G4VPhysicalVolume *detcon::Construct() {
     ross_Pair2_0 = nist->FindOrBuildMaterial("G4_Ni");
     ross_Pair2_1 = nist->FindOrBuildMaterial("G4_Cu");
 
+    G4Material* mylar = nist->FindOrBuildMaterial("G4_MYLAR");
+
     // World
     G4double worldSize = 5 * cm;
     worldMat = nist->FindOrBuildMaterial("G4_Galactic");
@@ -67,7 +69,14 @@ G4VPhysicalVolume *detcon::Construct() {
                                                      checkOverlaps);
 
     // Ross-Filter
+    // FIXME: Adding Ross filters here
     // BuildRossFilter();
+
+    // Mylar window
+    G4Tubs* solidWindow = new G4Tubs("solidWindow", 0, 1*cm, 50*um, 0, TMath::TwoPi());
+    G4LogicalVolume* logicWindow = new G4LogicalVolume(solidWindow, mylar, "logicWindow");
+    // FIXME: Adding mylar window here
+    // G4VPhysicalVolume* physWindow = new G4PVPlacement(0, G4ThreeVector(0, 0, 1*mm), logicWindow, "physWindow", logicWorld, false, 0, checkOverlaps);
 
     // X-ray detector
     solidDet = new G4Tubs("solidDet", 0, 1*cm, 10*um, 0, TMath::TwoPi()/6.);
